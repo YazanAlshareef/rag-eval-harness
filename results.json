@@ -1,0 +1,142 @@
+{
+  "generatedBy": "npm run replay",
+  "providers": {
+    "fixture": {
+      "label": "FIXTURE: offline stand-in model (hashed word vectors + extractive answers). Not Gemini. Numbers say nothing about Gemini.",
+      "pricing": null,
+      "configs": {
+        "topk2": {
+          "provider": "fixture",
+          "config": {
+            "name": "topk2",
+            "topK": 2
+          },
+          "ranAt": "2026-11-10T01:43:58.342Z",
+          "appCommit": "d8d3442480edc1bcdb182518f79357fb26ffc65e",
+          "questionsFile": "data/questions.jsonl",
+          "metrics": {
+            "questions": 40,
+            "retrievalHit": {
+              "num": 19,
+              "den": 30,
+              "rate": 0.6333333333333333,
+              "ci": [
+                0.4551324643360493,
+                0.7812629779598231
+              ]
+            },
+            "rubricPass": {
+              "num": 13,
+              "den": 18,
+              "rate": 0.7222222222222222,
+              "ci": [
+                0.49126922453805477,
+                0.8750043085364453
+              ]
+            },
+            "judgeCorrect": null,
+            "citationAccuracy": {
+              "num": 18,
+              "den": 27,
+              "rate": 0.6666666666666666,
+              "ci": [
+                0.47824419872105484,
+                0.8135694555640666
+              ]
+            },
+            "refusalAccuracy": {
+              "num": 7,
+              "den": 10,
+              "rate": 0.7,
+              "ci": [
+                0.3967732199795652,
+                0.892210712513788
+              ]
+            },
+            "falseRefusal": {
+              "num": 3,
+              "den": 30,
+              "rate": 0.1,
+              "ci": [
+                0.03459925995971615,
+                0.2562144131526662
+              ]
+            },
+            "latencyMs": {
+              "median": 2,
+              "p95": 2
+            },
+            "estCostUsd": null
+          }
+        },
+        "topk4": {
+          "provider": "fixture",
+          "config": {
+            "name": "topk4",
+            "topK": 4
+          },
+          "ranAt": "2026-11-10T01:43:58.438Z",
+          "appCommit": "d8d3442480edc1bcdb182518f79357fb26ffc65e",
+          "questionsFile": "data/questions.jsonl",
+          "metrics": {
+            "questions": 40,
+            "retrievalHit": {
+              "num": 22,
+              "den": 30,
+              "rate": 0.7333333333333333,
+              "ci": [
+                0.5555169795568831,
+                0.8581750444608938
+              ]
+            },
+            "rubricPass": {
+              "num": 13,
+              "den": 18,
+              "rate": 0.7222222222222222,
+              "ci": [
+                0.49126922453805477,
+                0.8750043085364453
+              ]
+            },
+            "judgeCorrect": null,
+            "citationAccuracy": {
+              "num": 20,
+              "den": 27,
+              "rate": 0.7407407407407407,
+              "ci": [
+                0.5532106959738432,
+                0.8682979157713321
+              ]
+            },
+            "refusalAccuracy": {
+              "num": 7,
+              "den": 10,
+              "rate": 0.7,
+              "ci": [
+                0.3967732199795652,
+                0.892210712513788
+              ]
+            },
+            "falseRefusal": {
+              "num": 3,
+              "den": 30,
+              "rate": 0.1,
+              "ci": [
+                0.03459925995971615,
+                0.2562144131526662
+              ]
+            },
+            "latencyMs": {
+              "median": 2,
+              "p95": 3
+            },
+            "estCostUsd": null
+          }
+        }
+      }
+    },
+    "gemini": {
+      "status": "not run with live key"
+    }
+  }
+}

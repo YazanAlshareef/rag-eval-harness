@@ -1,0 +1,82 @@
+[
+ {
+  "provider": "fixture",
+  "config": "topk4",
+  "id": "q04",
+  "verdict": "correct",
+  "note": "states 4 hours per pay period",
+  "by": "AI coding assistant, read the saved output; Yazan should repeat on a live run"
+ },
+ {
+  "provider": "fixture",
+  "config": "topk4",
+  "id": "q07",
+  "verdict": "correct",
+  "note": "15 days, matches",
+  "by": "AI coding assistant, read the saved output; Yazan should repeat on a live run"
+ },
+ {
+  "provider": "fixture",
+  "config": "topk4",
+  "id": "q10",
+  "verdict": "correct",
+  "note": "4 hours; extra sentence about 2 days is also in the handbook",
+  "by": "AI coding assistant, read the saved output; Yazan should repeat on a live run"
+ },
+ {
+  "provider": "fixture",
+  "config": "topk4",
+  "id": "q13",
+  "verdict": "correct",
+  "note": "flexible work schedules; no number so rubric cannot score it",
+  "by": "AI coding assistant, read the saved output; Yazan should repeat on a live run"
+ },
+ {
+  "provider": "fixture",
+  "config": "topk4",
+  "id": "q16",
+  "verdict": "incorrect",
+  "note": "answer is an unrelated sentence about PIV cards; never says contact the Help Desk",
+  "by": "AI coding assistant, read the saved output; Yazan should repeat on a live run"
+ },
+ {
+  "provider": "fixture",
+  "config": "topk4",
+  "id": "q20",
+  "verdict": "correct",
+  "note": "MAX.gov named; no digits so rubric cannot score it",
+  "by": "AI coding assistant, read the saved output; Yazan should repeat on a live run"
+ },
+ {
+  "provider": "fixture",
+  "config": "topk4",
+  "id": "q34",
+  "verdict": "incorrect",
+  "note": "talks about annual/sick leave, not donated leave",
+  "by": "AI coding assistant, read the saved output; Yazan should repeat on a live run"
+ },
+ {
+  "provider": "fixture",
+  "config": "topk4",
+  "id": "q37",
+  "verdict": "incorrect",
+  "note": "gives the under-3-years rate (4 hours), not 8",
+  "by": "AI coding assistant, read the saved output; Yazan should repeat on a live run"
+ },
+ {
+  "provider": "fixture",
+  "config": "topk4",
+  "id": "q38",
+  "verdict": "incorrect",
+  "note": "garbled sentence plus a generic one; does not say the PIN replaces the password",
+  "by": "AI coding assistant, read the saved output; Yazan should repeat on a live run"
+ },
+ {
+  "provider": "fixture",
+  "config": "topk4",
+  "id": "q35",
+  "verdict": "incorrect",
+  "note": "does not correct the false premise that FMLA is paid",
+  "by": "AI coding assistant, read the saved output; Yazan should repeat on a live run"
+ }
+]

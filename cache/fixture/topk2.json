@@ -1,0 +1,854 @@
+{
+ "meta": {
+  "provider": "fixture",
+  "config": {
+   "name": "topk2",
+   "topK": 2
+  },
+  "ranAt": "2026-11-10T01:43:58.342Z",
+  "appCommit": "d8d3442480edc1bcdb182518f79357fb26ffc65e",
+  "questionsFile": "data/questions.jsonl"
+ },
+ "records": [
+  {
+   "id": "q01",
+   "retrieved": [
+    {
+     "docId": "advanced-sick-leave",
+     "section": "Getting approval for advanced sick leave",
+     "score": 0.6977907717227936
+    },
+    {
+     "docId": "leave",
+     "section": "Types of leave > Taking advanced leave > Advanced sick leave",
+     "score": 0.6936083436012268
+    }
+   ],
+   "refused": false,
+   "answer": "When routing for signatures, you can use the Docusign template for the Advanced Sick Leave Request to fill out the form and request the right signatures. [1] You can request up to 240 hours of advanced sick leave. [2]",
+   "estInputTokens": 353,
+   "estOutputTokens": 55,
+   "latencyMs": 5,
+   "judge": null
+  },
+  {
+   "id": "q02",
+   "retrieved": [
+    {
+     "docId": "fmla",
+     "section": "About FMLA",
+     "score": 0.46300792694091797
+    },
+    {
+     "docId": "paid-parental-leave",
+     "section": "About PPL",
+     "score": 0.445323646068573
+    }
+   ],
+   "refused": false,
+   "answer": "FMLA entitles you to take up to 12 weeks of _unpaid_ leave per 12 month period for the following: [1] If you previously used FMLA within the past 12 months of your parental leave period, those hours would be subtracted from the 12 weeks you can take for PPL. [2]",
+   "estInputTokens": 457,
+   "estOutputTokens": 66,
+   "latencyMs": 2,
+   "judge": null
+  },
+  {
+   "id": "q03",
+   "retrieved": [
+    {
+     "docId": "fmla",
+     "section": "About FMLA > Eligibility",
+     "score": 0.4450991749763489
+    },
+    {
+     "docId": "fmla",
+     "section": "How FMLA works > FMLA for caregiving and health reasons",
+     "score": 0.3742406964302063
+    }
+   ],
+   "refused": false,
+   "answer": "To be eligible for FMLA, you must have at least one year of federal service. [1] If you need to take more than 13 days (total accrued Sick Leave for a year) for your own care or caregiving reasons, you can apply for FMLA. [2]",
+   "estInputTokens": 278,
+   "estOutputTokens": 57,
+   "latencyMs": 2,
+   "judge": null
+  },
+  {
+   "id": "q04",
+   "retrieved": [
+    {
+     "docId": "leave",
+     "section": "Types of leave > Annual leave",
+     "score": 0.5989589691162109
+    },
+    {
+     "docId": "leave",
+     "section": "Types of leave > Taking advanced leave > Advanced annual leave",
+     "score": 0.5690633952617645
+    }
+   ],
+   "refused": false,
+   "answer": "Fewer than 3 years: 4 hours per pay period [1] You earn 4 annual leave hours per pay period and there are 14 pay periods left until December 31st. [2]",
+   "estInputTokens": 508,
+   "estOutputTokens": 38,
+   "latencyMs": 2,
+   "judge": null
+  },
+  {
+   "id": "q05",
+   "retrieved": [
+    {
+     "docId": "leave",
+     "section": "Types of leave > Sick leave > For bereavement purposes",
+     "score": 0.6105684340000153
+    },
+    {
+     "docId": "leave",
+     "section": "Types of leave > Sick leave",
+     "score": 0.48219364881515503
+    }
+   ],
+   "refused": false,
+   "answer": "You can use up to 13 days (104 hours) per year of your sick leave for bereavement, funeral planning, and/or attending the funeral of a family member. [1] You can also use up to 13 days of sick leave per year for family health needs and bereavement. [2]",
+   "estInputTokens": 502,
+   "estOutputTokens": 63,
+   "latencyMs": 2,
+   "judge": null
+  },
+  {
+   "id": "q06",
+   "retrieved": [
+    {
+     "docId": "leave",
+     "section": "Types of leave > Parental bereavement leave",
+     "score": 0.6157872378826141
+    },
+    {
+     "docId": "paid-parental-leave",
+     "section": "Using PPL > Combining paid parental leave with other leave > Unpaid leave",
+     "score": 0.3750080466270447
+    }
+   ],
+   "refused": false,
+   "answer": "You can receive two weeks (80 hours) of parental bereavement leave for the passing of your child. [1] Parental Bereavement Leave Memorandum [1]",
+   "estInputTokens": 291,
+   "estOutputTokens": 36,
+   "latencyMs": 2,
+   "judge": null
+  },
+  {
+   "id": "q07",
+   "retrieved": [
+    {
+     "docId": "leave",
+     "section": "Types of leave > Military leave",
+     "score": 0.5470755398273468
+    },
+    {
+     "docId": "leave",
+     "section": "Types of leave > Military leave > Military spouse relocation",
+     "score": 0.41017359495162964
+    }
+   ],
+   "refused": false,
+   "answer": "You can receive 15 Military Leave days each year for active duty, active duty training, and inactive duty training in the National Guard or as a Reservist. [1] For a two-week annual training or any other first-use of your 15 paid days, request the leave using Code 51 \\- Regular Military. [1]",
+   "estInputTokens": 408,
+   "estOutputTokens": 73,
+   "latencyMs": 2,
+   "judge": null
+  },
+  {
+   "id": "q08",
+   "retrieved": [
+    {
+     "docId": "leave",
+     "section": "Types of leave > Disabled veteran leave (DVL)",
+     "score": 0.5568998157978058
+    },
+    {
+     "docId": "voluntary-leave-transfer-program",
+     "section": "To receive donated hours > Using donated hours",
+     "score": 0.3456193208694458
+    }
+   ],
+   "refused": false,
+   "answer": "If you are a veteran with a service-connected disability rating of 30 percent or more, you can receive up to 104 hours of disabled veteran leave to receive medical treatment related to your disability. [1] Disabled Veteran Leave [1]",
+   "estInputTokens": 565,
+   "estOutputTokens": 58,
+   "latencyMs": 2,
+   "judge": null
+  },
+  {
+   "id": "q09",
+   "retrieved": [
+    {
+     "docId": "leave",
+     "section": "Types of leave > Administrative Leave > Blood, bone marrow, and organ donation",
+     "score": 0.6842471957206726
+    },
+    {
+     "docId": "leave",
+     "section": "Types of leave > Administrative Leave > COVID vaccination",
+     "score": 0.36132949590682983
+    }
+   ],
+   "refused": false,
+   "answer": "You can access up to 7 days of Administrative Leave during a calendar year to serve as a bone marrow donor, and up to 30 days serve as an organ donor. [1] Bone Marrow or Organ Donor Leave [1]",
+   "estInputTokens": 343,
+   "estOutputTokens": 48,
+   "latencyMs": 2,
+   "judge": null
+  },
+  {
+   "id": "q10",
+   "retrieved": [
+    {
+     "docId": "leave",
+     "section": "Types of leave > Administrative Leave > COVID vaccination",
+     "score": 0.6704742908477783
+    },
+    {
+     "docId": "leave",
+     "section": "Reasons someone can take leave",
+     "score": 0.40683114528656006
+    }
+   ],
+   "refused": false,
+   "answer": "You can take up to 4 hours of Administrative Leave to get a COVID vaccine or booster for yourself or a family member. [1] You can also take up to 2 days of Administrative Leave when recovering from vaccine side effects. [1]",
+   "estInputTokens": 465,
+   "estOutputTokens": 56,
+   "latencyMs": 2,
+   "judge": null
+  },
+  {
+   "id": "q11",
+   "retrieved": [
+    {
+     "docId": "leave",
+     "section": "Types of leave > Paid Parental Leave",
+     "score": 0.5760188400745392
+    },
+    {
+     "docId": "paid-parental-leave",
+     "section": "Paid parental leave (PPL)",
+     "score": 0.5469991862773895
+    }
+   ],
+   "refused": false,
+   "answer": "You are entitled to 12 weeks of paid time off for the birth, adoption or placement of a new child. [1] Refer to the Paid Parental Leave page for more information, including requesting PPL. [1]",
+   "estInputTokens": 272,
+   "estOutputTokens": 48,
+   "latencyMs": 2,
+   "judge": null
+  },
+  {
+   "id": "q12",
+   "retrieved": [
+    {
+     "docId": "paid-parental-leave",
+     "section": "Paid parental leave (PPL)",
+     "score": 0.5551444590091705
+    },
+    {
+     "docId": "leave",
+     "section": "Types of leave > Paid Parental Leave",
+     "score": 0.527680903673172
+    }
+   ],
+   "refused": false,
+   "answer": "TTS has paid parental leave (PPL) for the birth or placement (adoption or foster care) of a child. [1] You are entitled to 12 weeks of paid time off for the birth, adoption or placement of a new child. [2]",
+   "estInputTokens": 280,
+   "estOutputTokens": 52,
+   "latencyMs": 2,
+   "judge": null
+  },
+  {
+   "id": "q13",
+   "retrieved": [
+    {
+     "docId": "overtime",
+     "section": "Credit hours, in flexible work schedules",
+     "score": 0.6586991846561432
+    },
+    {
+     "docId": "overtime",
+     "section": "Credit hours, in flexible work schedules > Credit hours mechanics",
+     "score": 0.5336197316646576
+    }
+   ],
+   "refused": false,
+   "answer": "Only people on flexible work schedules can earn and use credit hours. [1] There's no salary maximum for earning and using credit hours. [1]",
+   "estInputTokens": 502,
+   "estOutputTokens": 35,
+   "latencyMs": 2,
+   "judge": null
+  },
+  {
+   "id": "q14",
+   "retrieved": [
+    {
+     "docId": "overtime",
+     "section": "Travel comp time, for everyone > Using travel comp time",
+     "score": 0.6761727035045624
+    },
+    {
+     "docId": "overtime",
+     "section": "Travel comp time, for everyone",
+     "score": 0.6648755967617035
+    }
+   ],
+   "refused": false,
+   "answer": "Travel comp time expires one year (26 pay periods) after it is earned. [1] If you leave GSA, any unused travel comp time will be forfeited. [1]",
+   "estInputTokens": 369,
+   "estOutputTokens": 36,
+   "latencyMs": 2,
+   "judge": null
+  },
+  {
+   "id": "q15",
+   "retrieved": [
+    {
+     "docId": "how-to-log-in",
+     "section": "ENT (enterprise) login > Changing your ENT password",
+     "score": 0.5351167023181915
+    },
+    {
+     "docId": "how-to-log-in",
+     "section": "Change or reset your Macbook login password",
+     "score": 0.48227977752685547
+    }
+   ],
+   "refused": false,
+   "answer": "You must change your ENT password immediately after you start with GSA and every 90 days thereafter. [1] Users with expiring local passwords (not ENT passwords) will be prompted to change their password and must follow security requirements. [2]",
+   "estInputTokens": 482,
+   "estOutputTokens": 62,
+   "latencyMs": 2,
+   "judge": null
+  },
+  {
+   "id": "q16",
+   "retrieved": [
+    {
+     "docId": "piv",
+     "section": "PIV card",
+     "score": 0.5714767575263977
+    },
+    {
+     "docId": "piv",
+     "section": "Use with a GSA Mac > Issues",
+     "score": 0.3950291872024536
+    }
+   ],
+   "refused": false,
+   "answer": "your \"Smart Card\" or \"GSA badge\"._ [1] If the card is lost, follow these instructions. [2]",
+   "estInputTokens": 199,
+   "estOutputTokens": 23,
+   "latencyMs": 2,
+   "judge": null
+  },
+  {
+   "id": "q17",
+   "retrieved": [
+    {
+     "docId": "overtime",
+     "section": "Travel comp time, for everyone > Understanding travel comp time",
+     "score": 0.2886960506439209
+    },
+    {
+     "docId": "overtime",
+     "section": "Travel comp time, for everyone",
+     "score": 0.27199453115463257
+    }
+   ],
+   "refused": true,
+   "answer": "I can't find that in the documents.",
+   "estInputTokens": 0,
+   "estOutputTokens": 0,
+   "latencyMs": 2,
+   "judge": null
+  },
+  {
+   "id": "q18",
+   "retrieved": [
+    {
+     "docId": "leave",
+     "section": "Transferring leave from another federal agency",
+     "score": 0.3601192235946655
+    },
+    {
+     "docId": "leave",
+     "section": "Types of leave > Court leave (jury duty)",
+     "score": 0.3316105604171753
+    }
+   ],
+   "refused": false,
+   "answer": "Annual leave and sick leave balances can take a _significant_ amount of time to transfer to GSA, depending on the speed of your previous payroll provider. [1] If you have your final Earnings and Leave Statement (pay stub) from your previous agency, you can send a copy to kc-payroll.finance@gsa.gov to expedite the process. [1]",
+   "estInputTokens": 398,
+   "estOutputTokens": 82,
+   "latencyMs": 2,
+   "judge": null
+  },
+  {
+   "id": "q19",
+   "retrieved": [
+    {
+     "docId": "voluntary-leave-transfer-program",
+     "section": "Voluntary Leave Transfer Program",
+     "score": 0.6218379139900208
+    },
+    {
+     "docId": "voluntary-leave-transfer-program",
+     "section": "To receive donated hours > Using donated hours",
+     "score": 0.5417056083679199
+    }
+   ],
+   "refused": false,
+   "answer": "The Voluntary Leave Transfer Program (VLTP) allows TTS employees to donate annual leave directly to another employee who has a personal or family medical emergency. [1] You will receive donated leave as it’s donated; so, you and your supervisor will want to touch base as it’s coming in. [2]",
+   "estInputTokens": 464,
+   "estOutputTokens": 73,
+   "latencyMs": 3,
+   "judge": null
+  },
+  {
+   "id": "q20",
+   "retrieved": [
+    {
+     "docId": "leave",
+     "section": "Types of leave > Using donated leave",
+     "score": 0.3931204080581665
+    },
+    {
+     "docId": "leave",
+     "section": "Types of leave > Award leave",
+     "score": 0.34512269496917725
+    }
+   ],
+   "refused": false,
+   "answer": "If you have a personal or family medical emergency and have exhausted your earned leave, you can enroll in the Voluntary Leave Transfer Program (VLTP). [1] Your colleagues can donate their annual leave for you. [1]",
+   "estInputTokens": 349,
+   "estOutputTokens": 54,
+   "latencyMs": 2,
+   "judge": null
+  },
+  {
+   "id": "q21",
+   "retrieved": [
+    {
+     "docId": "google-drive",
+     "section": "Google Drive",
+     "score": 0.4697760343551636
+    },
+    {
+     "docId": "google-drive",
+     "section": "Local editing",
+     "score": 0.44532716274261475
+    }
+   ],
+   "refused": false,
+   "answer": "Google Drive is a cloud storage and file backup system. [1] The Google Drive (formerly Drive File Stream) app can be used for local editing of files on Drive. [2]",
+   "estInputTokens": 288,
+   "estOutputTokens": 41,
+   "latencyMs": 2,
+   "judge": null
+  },
+  {
+   "id": "q22",
+   "retrieved": [
+    {
+     "docId": "google-drive",
+     "section": "Security",
+     "score": 0.660129189491272
+    },
+    {
+     "docId": "google-drive",
+     "section": "Google Drive",
+     "score": 0.47664105892181396
+    }
+   ],
+   "refused": false,
+   "answer": "If you're using a non-Google service and it requests access to your GSA Google Drive (such as to enable an integration feature), please deny that request. [1] In other words, don't grant OAuth access to GSA Google Drive. [1]",
+   "estInputTokens": 360,
+   "estOutputTokens": 56,
+   "latencyMs": 2,
+   "judge": null
+  },
+  {
+   "id": "q23",
+   "retrieved": [
+    {
+     "docId": "privacy",
+     "section": "Procedure for GSA projects > Re-certification",
+     "score": 0.29711252450942993
+    },
+    {
+     "docId": "equipment",
+     "section": "Equipment to accommodate disability",
+     "score": 0.2788836359977722
+    }
+   ],
+   "refused": true,
+   "answer": "I can't find that in the documents.",
+   "estInputTokens": 0,
+   "estOutputTokens": 0,
+   "latencyMs": 2,
+   "judge": null
+  },
+  {
+   "id": "q24",
+   "retrieved": [
+    {
+     "docId": "leave",
+     "section": "Types of leave > Court leave (jury duty)",
+     "score": 0.47595638036727905
+    },
+    {
+     "docId": "paid-parental-leave",
+     "section": "Using PPL > Combining paid parental leave with other leave > Other paid leave",
+     "score": 0.322964608669281
+    }
+   ],
+   "refused": false,
+   "answer": "When you are called to jury duty, your absence is marked as Court Leave and does not count against any of your other leave balances. [1] You can receive Court Leave for however long you serve on a jury. [1]",
+   "estInputTokens": 404,
+   "estOutputTokens": 52,
+   "latencyMs": 2,
+   "judge": null
+  },
+  {
+   "id": "q25",
+   "retrieved": [
+    {
+     "docId": "fmla",
+     "section": "How FMLA works > Paid Parental Leave and FMLA",
+     "score": 0.18568283319473267
+    },
+    {
+     "docId": "paid-parental-leave",
+     "section": "About PPL",
+     "score": 0.12438321113586426
+    }
+   ],
+   "refused": true,
+   "answer": "I can't find that in the documents.",
+   "estInputTokens": 0,
+   "estOutputTokens": 0,
+   "latencyMs": 2,
+   "judge": null
+  },
+  {
+   "id": "q26",
+   "retrieved": [
+    {
+     "docId": "fmla",
+     "section": "How FMLA works > Paid Parental Leave and FMLA",
+     "score": 0.19898736476898193
+    },
+    {
+     "docId": "leave",
+     "section": "Types of leave > Annual leave",
+     "score": 0.1748638153076172
+    }
+   ],
+   "refused": true,
+   "answer": "I can't find that in the documents.",
+   "estInputTokens": 0,
+   "estOutputTokens": 0,
+   "latencyMs": 2,
+   "judge": null
+  },
+  {
+   "id": "q27",
+   "retrieved": [
+    {
+     "docId": "paid-parental-leave",
+     "section": "Requesting paid parental leave > After birth/placement > Birth-supporting documentation",
+     "score": 0.13456565141677856
+    },
+    {
+     "docId": "google-drive",
+     "section": "Permissions and sharing",
+     "score": 0.0877336859703064
+    }
+   ],
+   "refused": true,
+   "answer": "I can't find that in the documents.",
+   "estInputTokens": 0,
+   "estOutputTokens": 0,
+   "latencyMs": 2,
+   "judge": null
+  },
+  {
+   "id": "q28",
+   "retrieved": [
+    {
+     "docId": "piv",
+     "section": "Getting issued a card",
+     "score": 0.3025892376899719
+    },
+    {
+     "docId": "equipment",
+     "section": "Laptop > Bring Your Own Device (BYOD)",
+     "score": 0.2589132785797119
+    }
+   ],
+   "refused": false,
+   "answer": "Your PIV allows you to get in and out of GSA buildings and avoid security lines. [1] Although some of our employees are based out of a specific office, your badge can be permissioned for multiple GSA buildings. [1]",
+   "estInputTokens": 590,
+   "estOutputTokens": 54,
+   "latencyMs": 2,
+   "judge": null
+  },
+  {
+   "id": "q29",
+   "retrieved": [
+    {
+     "docId": "overtime",
+     "section": "Travel comp time, for everyone",
+     "score": 0.22856396436691284
+    },
+    {
+     "docId": "overtime",
+     "section": "Travel comp time, for everyone > Calculating travel comp time",
+     "score": 0.22288894653320312
+    }
+   ],
+   "refused": true,
+   "answer": "I can't find that in the documents.",
+   "estInputTokens": 0,
+   "estOutputTokens": 0,
+   "latencyMs": 2,
+   "judge": null
+  },
+  {
+   "id": "q30",
+   "retrieved": [
+    {
+     "docId": "equipment",
+     "section": "Phone > Tips",
+     "score": 0.3067968487739563
+    },
+    {
+     "docId": "equipment",
+     "section": "Laptop > Bring Your Own Device (BYOD)",
+     "score": 0.30162477493286133
+    }
+   ],
+   "refused": false,
+   "answer": "You can only download mobile apps approved by GSA IT. [1] For information on which mobile phones are available on GSA's current   contract, employee discounts, voicemail setup, commonly used apps to install,   mobile security, traveling with your smartphone, the GSA smartphone   replacement process, and more, see   Mobile Devices. [1]",
+   "estInputTokens": 519,
+   "estOutputTokens": 84,
+   "latencyMs": 2,
+   "judge": null
+  },
+  {
+   "id": "q31",
+   "retrieved": [
+    {
+     "docId": "leave",
+     "section": "Types of leave > Court leave (jury duty)",
+     "score": 0.10854506492614746
+    },
+    {
+     "docId": "voluntary-leave-transfer-program",
+     "section": "Voluntary Leave Transfer Program",
+     "score": 0.09777122735977173
+    }
+   ],
+   "refused": true,
+   "answer": "I can't find that in the documents.",
+   "estInputTokens": 0,
+   "estOutputTokens": 0,
+   "latencyMs": 2,
+   "judge": null
+  },
+  {
+   "id": "q32",
+   "retrieved": [
+    {
+     "docId": "paid-parental-leave",
+     "section": "About PPL",
+     "score": 0.08309328556060791
+    },
+    {
+     "docId": "how-to-log-in",
+     "section": "Logging in & Networks",
+     "score": 0.08247864246368408
+    }
+   ],
+   "refused": true,
+   "answer": "I can't find that in the documents.",
+   "estInputTokens": 0,
+   "estOutputTokens": 0,
+   "latencyMs": 2,
+   "judge": null
+  },
+  {
+   "id": "q33",
+   "retrieved": [
+    {
+     "docId": "how-to-log-in",
+     "section": "Change or reset your Macbook login password",
+     "score": 0.2790426015853882
+    },
+    {
+     "docId": "overtime",
+     "section": "Overtime and Compensatory (Comp) time",
+     "score": 0.22492307424545288
+    }
+   ],
+   "refused": true,
+   "answer": "I can't find that in the documents.",
+   "estInputTokens": 0,
+   "estOutputTokens": 0,
+   "latencyMs": 2,
+   "judge": null
+  },
+  {
+   "id": "q34",
+   "retrieved": [
+    {
+     "docId": "leave",
+     "section": "Reasons someone can take leave",
+     "score": 0.7076095342636108
+    },
+    {
+     "docId": "paid-parental-leave",
+     "section": "Using PPL > Combining paid parental leave with other leave > Other paid leave",
+     "score": 0.6467089056968689
+    }
+   ],
+   "refused": false,
+   "answer": "You can also use annual and sick leave for parental leave reasons. [1] You can also use annual, award, and sick leave for parental leave reasons. [2]",
+   "estInputTokens": 488,
+   "estOutputTokens": 38,
+   "latencyMs": 2,
+   "judge": null
+  },
+  {
+   "id": "q35",
+   "retrieved": [
+    {
+     "docId": "fmla",
+     "section": "How FMLA works > Paid Parental Leave and FMLA",
+     "score": 0.5116817951202393
+    },
+    {
+     "docId": "fmla",
+     "section": "How FMLA works",
+     "score": 0.5017310976982117
+    }
+   ],
+   "refused": false,
+   "answer": "You have to be eligible for FMLA to receive Paid Parental Leave (PPL). [1] For example: you went on FMLA for 4 weeks in March 2022 to care for a seriously ill family member, and you used your accrued Sick Leave in order to be paid during those 4 weeks. [2]",
+   "estInputTokens": 440,
+   "estOutputTokens": 64,
+   "latencyMs": 2,
+   "judge": null
+  },
+  {
+   "id": "q36",
+   "retrieved": [
+    {
+     "docId": "leave",
+     "section": "Types of leave > Military leave",
+     "score": 0.5061902701854706
+    },
+    {
+     "docId": "leave",
+     "section": "Types of leave > Military leave > Military spouse relocation",
+     "score": 0.32176661491394043
+    }
+   ],
+   "refused": false,
+   "answer": "You can receive 15 Military Leave days each year for active duty, active duty training, and inactive duty training in the National Guard or as a Reservist. [1] You can carry over a maximum of 15 days into the next fiscal year. [1]",
+   "estInputTokens": 414,
+   "estOutputTokens": 58,
+   "latencyMs": 2,
+   "judge": null
+  },
+  {
+   "id": "q37",
+   "retrieved": [
+    {
+     "docId": "leave",
+     "section": "Types of leave > Annual leave",
+     "score": 0.5823562145233154
+    },
+    {
+     "docId": "leave",
+     "section": "Types of leave > Taking advanced leave > Advanced annual leave",
+     "score": 0.5547212660312653
+    }
+   ],
+   "refused": false,
+   "answer": "You earn 4 annual leave hours per pay period and there are 14 pay periods left until December 31st. [2] You will earn 56 more annual leave hours (14 pay periods x 4 hours per pay period). [2]",
+   "estInputTokens": 506,
+   "estOutputTokens": 48,
+   "latencyMs": 2,
+   "judge": null
+  },
+  {
+   "id": "q38",
+   "retrieved": [
+    {
+     "docId": "piv",
+     "section": "PIV card",
+     "score": 0.508475124835968
+    },
+    {
+     "docId": "piv",
+     "section": "Use with a GSA Mac > Issues",
+     "score": 0.45962733030319214
+    }
+   ],
+   "refused": false,
+   "answer": "your \"Smart Card\" or \"GSA badge\"._ [1] If the card is lost, follow these instructions. [2]",
+   "estInputTokens": 197,
+   "estOutputTokens": 23,
+   "latencyMs": 2,
+   "judge": null
+  },
+  {
+   "id": "q39",
+   "retrieved": [
+    {
+     "docId": "overtime",
+     "section": "Overtime and Compensatory (Comp) time > Compensatory (Comp) time, depending on your salary level",
+     "score": 0.5438126623630524
+    },
+    {
+     "docId": "overtime",
+     "section": "Travel comp time, for everyone > Using travel comp time",
+     "score": 0.41296207904815674
+    }
+   ],
+   "refused": false,
+   "answer": "Comp time is when you receive hours of leave instead of overtime pay. [1] To determine the maximum number of comp time hours that you can accrue per pay period, please use the Bi-weekly Comp Time Cap Calculator. [1]",
+   "estInputTokens": 473,
+   "estOutputTokens": 54,
+   "latencyMs": 2,
+   "judge": null
+  },
+  {
+   "id": "q40",
+   "retrieved": [
+    {
+     "docId": "how-to-log-in",
+     "section": "Change or reset your Macbook login password",
+     "score": 0.2941131591796875
+    },
+    {
+     "docId": "piv",
+     "section": "Use with a GSA Mac > Password vs. PIN",
+     "score": 0.22109711170196533
+    }
+   ],
+   "refused": true,
+   "answer": "I can't find that in the documents.",
+   "estInputTokens": 0,
+   "estOutputTokens": 0,
+   "latencyMs": 2,
+   "judge": null
+  }
+ ]
+}
