@@ -41,14 +41,23 @@ export async function openPipeline(name: ProviderName, chatModel?: string) {
   const load = (f: string) => import(pathToFileURL(path.join(dir, "lib", f)).href);
   if (name === "gemini") {
     if (!process.env.GEMINI_API_KEY) throw new Error("GEMINI_API_KEY is not set (put it in .env.local)");
-    if (chatModel) process.env.GEMINI_CHAT_MODEL = chatModel; // the app reads the model from this variable
   }
   const [{ REFUSAL, minScore }, { getProvider }, { openStore, search, getMeta }] = await Promise.all([
     load("config.ts"),
     load("llm.ts"),
     load("store.ts"),
   ]);
-  const provider: AppProvider = getProvider(name);
+  // The app's getProvider() takes no model argument; it reads GEMINI_CHAT_MODEL once, when the
+  // provider is created. So set it only for that call and put it back straight away.
+  const saved = process.env.GEMINI_CHAT_MODEL;
+  if (chatModel) process.env.GEMINI_CHAT_MODEL = chatModel;
+  let provider: AppProvider;
+  try {
+    provider = getProvider(name);
+  } finally {
+    if (saved === undefined) delete process.env.GEMINI_CHAT_MODEL;
+    else process.env.GEMINI_CHAT_MODEL = saved;
+  }
   const db = openStore(path.join(dir, "data", `index.${name}.db`));
   if (getMeta(db, "provider") !== name) throw new Error(`index was built with "${getMeta(db, "provider")}", not "${name}"`);
   const threshold: number = minScore(name);
