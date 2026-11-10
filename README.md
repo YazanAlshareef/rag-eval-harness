@@ -63,7 +63,7 @@ An AI coding assistant wrote the first version of every file from a written brie
 - Cost uses estimated tokens and prices read from Google's pricing page on 2026-11-10.
 - `src/adapter.ts` repeats the app's `ask()` logic; if the app changes, update it.
 - The app's questions were also used to tune the fixture threshold, so fixture scores are optimistic.
-- Nothing here was tested against a live Gemini model, including the judge call and the retry path.
+- Nothing here was tested against a live Gemini model, including the judge call. `run.ts` retries 429 and 5xx errors on the app and judge calls and saves progress after every question (re-running resumes; `--fresh` starts over), but the retry path has never met a real rate limit.
 
 ## License
 
