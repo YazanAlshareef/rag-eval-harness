@@ -33,7 +33,7 @@ Needs Node 22.13 or newer and the app checked out next to this repo (`../handboo
 ```bash
 npm install
 npm run replay     # offline: re-scores the saved outputs in cache/, rewrites results.json, chart.png, REPORT.md
-npm test           # 5 tests for the scoring code
+npm test           # 6 tests for the scoring code
 npm run eval       # runs the app on all questions with LLM_PROVIDER from .env.local, then scores them
 ```
 
