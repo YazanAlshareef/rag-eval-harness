@@ -23,9 +23,11 @@ Fixture latency is the speed of local hashing code, not of any model. Do not com
 
 ### What the numbers say
 
-- retrieval hit rate: topk2 63% vs topk4 73% (difference +10 points). The confidence intervals overlap, so this sample cannot separate them.
-- citation accuracy: topk2 67% vs topk4 74% (difference +7 points). The confidence intervals overlap, so this sample cannot separate them.
-- refusal accuracy: topk2 70% vs topk4 70% (difference 0 points). No difference.
+- retrieval hit (answerable questions), 30 comparable questions: both right 19, only topk2 right 0, only topk4 right 3. Sign test p = 0.250 on 3 differing questions: this sample cannot separate them.
+- citation accuracy (answered answerable questions), 27 comparable questions: both right 18, only topk2 right 0, only topk4 right 2. Sign test p = 0.500 on 2 differing questions: this sample cannot separate them.
+- refusal accuracy (unanswerable questions), 10 comparable questions: both right 7, only topk2 right 0, only topk4 right 0. No question differs.
+
+This fixture comparison is about retrieval only. The fixture refuses when the best passage scores below a threshold, and the best passage is the same at top-k 2 and 4, so refusal is identical by construction. Top-k only changes which passages can be cited. It says nothing about how Gemini answers.
 
 ### Misses (traceable per question)
 
@@ -34,7 +36,9 @@ Fixture latency is the speed of local hashing code, not of any model. Do not com
 
 ### Hand spot-check
 
-10 items were read one by one and compared with the automatic rubric. Reader: AI coding assistant, read the saved output; Yazan should repeat on a live run. Verdicts live in `data/spot_check.json`.
+10 items were read one by one and compared with the automatic rubric. **The reader was an AI coding assistant, not Yazan** (AI coding assistant, not Yazan; read the saved fixture output; Yazan must redo by hand). Verdicts live in `data/spot_check.json`.
+
+**To do by hand:** Yazan should redo these 10 checks by hand on the saved answers (and again on a live run) before anyone relies on this table. Until then it is an assistant's reading, not a human check.
 
 | Config | Question | Hand verdict | Rubric | Note |
 |---|---|---|---|---|
@@ -49,8 +53,6 @@ Fixture latency is the speed of local hashing code, not of any model. Do not com
 | topk4 | q38 | incorrect | n/a | garbled sentence plus a generic one; does not say the PIN replaces the password |
 | topk4 | q35 | incorrect | fail | does not correct the false premise that FMLA is paid |
 
-Rubric agrees with the hand verdict on 5 of 5 comparable items.
-
 ## Live Gemini
 
 **Not run with live key.** No saved Gemini outputs exist, so there are no live numbers. To produce them see README "Run it".
@@ -62,9 +64,9 @@ Rubric agrees with the hand verdict on 5 of 5 comparable items.
 - **Small sample.** 40 questions, 30 answerable and 10 that should be refused. One question moves a rate by 2 to 3 points. Confidence intervals are wide; read differences smaller than about 15 points as noise.
 - **Fixture numbers are not Gemini numbers.** The fixture is a word-matching stand-in. It shows the harness works, not how the real app performs.
 - **The rubric is crude.** It checks numbers only, so key facts without a number (for example "yes, VLTP can be combined") get no rubric score. A wrong answer that happens to contain the right number passes.
-- **The LLM judge is another model's opinion** and has not been checked against humans yet (the spot-check above covers fixture output only). It exists only in live runs.
+- **The LLM judge is another model's opinion** and has not been checked against humans yet (the spot-check above covers fixture output only and was done by the assistant, not by a human). It exists only in live runs.
 - **Citation accuracy** counts an answer as accurate if one cited passage is the expected section; it does not check that the cited text supports the sentence.
-- **Questions were written by the app's author**, and the same 40 were used to tune the fixture threshold, so fixture scores are optimistic.
+- **Questions were written by an AI coding assistant** (per the app's README), not by a domain expert, and the same 40 were used to tune the fixture threshold, so fixture scores are optimistic.
 - **Cost** is an estimate from character counts, not billed usage.
 - **Single run per config.** Live models are not deterministic; no repeats were done.
 

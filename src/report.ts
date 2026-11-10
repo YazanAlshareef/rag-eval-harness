@@ -3,7 +3,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { chartPng } from "./chart.ts";
-import { metrics, rubric, type Question, type Rec } from "./score.ts";
+import { citationOk, hit, metrics, rubric, type Question, type Rec } from "./score.ts";
 
 type Cached = { meta: { provider: string; config: { name: string; topK: number; chatModel?: string }; ranAt: string; appCommit: string }; records: Rec[] };
 type Spot = { provider: string; config: string; id: string; verdict: "correct" | "incorrect"; note: string; by: string };
@@ -72,14 +72,38 @@ for (const provider of ["fixture", "gemini"] as const) {
     const [a, b] = rows;
     out("### What the numbers say");
     out();
-    const cmp: [string, keyof typeof a.m][] = [["retrieval hit rate", "retrievalHit"], ["citation accuracy", "citationAccuracy"], ["refusal accuracy", "refusalAccuracy"]];
-    for (const [nm, k] of cmp) {
-      const x = a.m[k] as { rate: number | null; ci: [number, number] | null }, y = b.m[k] as typeof x;
-      if (x.rate === null || y.rate === null) continue;
-      const d = (y.rate - x.rate) * 100;
-      const overlap = x.ci![0] <= y.ci![1] && y.ci![0] <= x.ci![1];
-      out(`- ${nm}: ${a.c.meta.config.name} ${(x.rate * 100).toFixed(0)}% vs ${b.c.meta.config.name} ${(y.rate * 100).toFixed(0)}% (difference ${d > 0 ? "+" : ""}${d.toFixed(0)} points). ${d === 0 ? "No difference." : overlap ? "The confidence intervals overlap, so this sample cannot separate them." : "The intervals do not overlap, a real gap is plausible but still rests on 40 questions."}`);
+    // Paired comparison: same questions in both configs, so count the questions where they differ.
+    // Overlapping confidence intervals are the wrong test here because the two samples are not independent.
+    const ra = new Map(a.c.records.map((r) => [r.id, r])), rb = new Map(b.c.records.map((r) => [r.id, r]));
+    const paired: [string, (r: Rec, q: Question) => boolean | null][] = [
+      ["retrieval hit (answerable questions)", (r, q) => (q.expect === "answer" ? hit(r, q) : null)],
+      ["citation accuracy (answered answerable questions)", (r, q) => (q.expect === "answer" && !r.refused ? citationOk(r, q) : null)],
+      ["refusal accuracy (unanswerable questions)", (r, q) => (q.expect === "refuse" ? r.refused : null)],
+    ];
+    for (const [nm, f] of paired) {
+      let onlyA = 0, onlyB = 0, both = 0, n = 0;
+      for (const q of qs) {
+        const x = f(ra.get(q.id)!, q), y = f(rb.get(q.id)!, q);
+        if (x === null || y === null) continue; // not comparable in one of the configs
+        n++;
+        if (x && y) both++;
+        else if (x) onlyA++;
+        else if (y) onlyB++;
+      }
+      const d = onlyA + onlyB;
+      // two-sided exact sign test on the questions where the configs differ
+      let p = 1;
+      if (d > 0) {
+        const m = Math.min(onlyA, onlyB);
+        let tail = 0;
+        for (let k = 0; k <= m; k++) { let c = 1; for (let i = 0; i < k; i++) c = (c * (d - i)) / (i + 1); tail += c * 0.5 ** d; }
+        p = Math.min(1, 2 * tail);
+      }
+      out(`- ${nm}, ${n} comparable questions: both right ${both}, only ${a.c.meta.config.name} right ${onlyA}, only ${b.c.meta.config.name} right ${onlyB}. ${d === 0 ? "No question differs." : `Sign test p = ${p.toFixed(3)} on ${d} differing questions${p < 0.05 ? ": a real difference is plausible, but it rests on a small sample." : ": this sample cannot separate them."}`}`);
     }
+    out();
+    if (provider === "fixture") out("This fixture comparison is about retrieval only. The fixture refuses when the best passage scores below a threshold, and the best passage is the same at top-k 2 and 4, so refusal is identical by construction. Top-k only changes which passages can be cited. It says nothing about how Gemini answers.");
+    else out("Pairs are the same question run under both configs. With 40 questions, a gap of a few questions is not evidence.");
     out();
   }
 
@@ -101,22 +125,20 @@ for (const provider of ["fixture", "gemini"] as const) {
   if (mine.length) {
     out("### Hand spot-check");
     out();
-    out(`${mine.length} items were read one by one and compared with the automatic rubric. Reader: ${[...new Set(mine.map((m) => m.by))].join("; ")}. Verdicts live in \`data/spot_check.json\`.`);
+    out(`${mine.length} items were read one by one and compared with the automatic rubric. **The reader was an AI coding assistant, not Yazan** (${[...new Set(mine.map((m) => m.by))].join("; ")}). Verdicts live in \`data/spot_check.json\`.`);
+    out();
+    out("**To do by hand:** Yazan should redo these 10 checks by hand on the saved answers (and again on a live run) before anyone relies on this table. Until then it is an assistant's reading, not a human check.");
     out();
     out("| Config | Question | Hand verdict | Rubric | Note |");
     out("|---|---|---|---|---|");
-    let agree = 0, comparable = 0;
     for (const s of mine) {
       const c = loaded.find((x) => x.meta.config.name === s.config);
       const r = c?.records.find((x) => x.id === s.id);
       const q = qs.find((x) => x.id === s.id);
       if (!r || !q) continue;
       const rb = rubric(r, q);
-      if (rb !== null) { comparable++; if (rb === (s.verdict === "correct")) agree++; }
       out(`| ${s.config} | ${s.id} | ${s.verdict} | ${rb === null ? "n/a" : rb ? "pass" : "fail"} | ${s.note} |`);
     }
-    out();
-    out(`Rubric agrees with the hand verdict on ${agree} of ${comparable} comparable items.`);
     out();
   }
 }
@@ -128,9 +150,9 @@ out();
 out("- **Small sample.** 40 questions, 30 answerable and 10 that should be refused. One question moves a rate by 2 to 3 points. Confidence intervals are wide; read differences smaller than about 15 points as noise.");
 out("- **Fixture numbers are not Gemini numbers.** The fixture is a word-matching stand-in. It shows the harness works, not how the real app performs.");
 out("- **The rubric is crude.** It checks numbers only, so key facts without a number (for example \"yes, VLTP can be combined\") get no rubric score. A wrong answer that happens to contain the right number passes.");
-out("- **The LLM judge is another model's opinion** and has not been checked against humans yet (the spot-check above covers fixture output only). It exists only in live runs.");
+out("- **The LLM judge is another model's opinion** and has not been checked against humans yet (the spot-check above covers fixture output only and was done by the assistant, not by a human). It exists only in live runs.");
 out("- **Citation accuracy** counts an answer as accurate if one cited passage is the expected section; it does not check that the cited text supports the sentence.");
-out("- **Questions were written by the app's author**, and the same 40 were used to tune the fixture threshold, so fixture scores are optimistic.");
+out("- **Questions were written by an AI coding assistant** (per the app's README), not by a domain expert, and the same 40 were used to tune the fixture threshold, so fixture scores are optimistic.");
 out("- **Cost** is an estimate from character counts, not billed usage.");
 out("- **Single run per config.** Live models are not deterministic; no repeats were done.");
 out();
