@@ -41,3 +41,16 @@ test("wilson interval is sane", () => {
   const [lo, hi] = wilson(15, 30);
   assert.ok(lo > 0.33 && lo < 0.34 && hi > 0.66 && hi < 0.67);
 });
+
+// The app's own `npm run eval` (fixture mode) reports: answered 27, source in top-4 22, cited 20, refused 7.
+// The saved topk4 fixture output, scored here, must give the same four counts.
+test("harness at k=4 matches the app's own fixture eval numbers", async () => {
+  const { readFileSync } = await import("node:fs");
+  const qs = readFileSync("data/questions.jsonl", "utf8").split("\n").filter(Boolean).map((l) => JSON.parse(l) as Question);
+  const { records } = JSON.parse(readFileSync("cache/fixture/topk4.json", "utf8")) as { records: Rec[] };
+  const m = metrics(records, qs);
+  assert.equal(m.falseRefusal.den - m.falseRefusal.num, 27); // answerable questions that were answered
+  assert.equal(m.retrievalHit.num, 22);
+  assert.equal(m.citationAccuracy.num, 20);
+  assert.equal(m.refusalAccuracy.num, 7);
+});
