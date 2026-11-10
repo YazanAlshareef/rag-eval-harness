@@ -1,0 +1,24 @@
+{
+  "fixture": {
+    "label": "FIXTURE: offline stand-in model (hashed word vectors + extractive answers). Not Gemini. Numbers say nothing about Gemini.",
+    "configs": [
+      { "name": "topk2", "topK": 2 },
+      { "name": "topk4", "topK": 4 }
+    ]
+  },
+  "gemini": {
+    "label": "Live Gemini",
+    "configs": [
+      { "name": "flash", "topK": 4, "chatModel": "gemini-2.5-flash" },
+      { "name": "flash-lite", "topK": 4, "chatModel": "gemini-2.5-flash-lite" }
+    ],
+    "pricing": {
+      "unit": "USD per 1M tokens, standard paid tier",
+      "source": "https://aistudio.google.com/docs/pricing, read 2026-11-10; check again before relying on it",
+      "models": {
+        "gemini-2.5-flash": { "input": 0.3, "output": 2.5 },
+        "gemini-2.5-flash-lite": { "input": 0.1, "output": 0.4 }
+      }
+    }
+  }
+}
